@@ -1,0 +1,410 @@
+*
+{
+    font-family: 'Lato', sans-serif;
+}
+
+#header
+{
+    background-color: #bd1d25;
+    height: 60px;
+    width: 100%;
+}
+
+#header-cont
+{
+    height: 60px;
+    margin: 0 auto;
+    max-width: 1170px;
+    overflow: visible;
+    padding: 10px;
+    width: 100%;
+}
+
+#logo a
+{
+    background: url('../images/logo.png');
+    display:block;
+    height: 37px;
+    outline: none;
+    text-decoration: none;
+    width: 225px;
+}
+
+#right-header-nav
+{
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+#right-header-nav a
+{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+}
+
+#right-header-nav a:hover
+{
+    color: #000;
+}
+
+#main-cont-wrapper
+{
+    background-color: #191818;
+    padding-bottom: 50px;
+}
+
+#search-cont-wrapper
+{
+    background: url('../images/main_bg.jpg') center top;
+    height: auto;
+    min-height: 700px;
+    width: 100%;
+}
+
+#search-cont
+{
+    display: table;
+    height: 700px;
+    width: 100%;
+}
+
+#search-cont #search
+{
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#search-cont #search p
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: block;
+    font-size: 42px;
+    font-weight: bold;
+    margin: 50px auto 40px auto;
+    padding: 10px;
+    text-align: center;
+    width: 681px;
+}
+
+#search-form
+{
+    margin: 0 auto;
+    padding: 0 130px;
+}
+
+#search-form label
+{
+    color: #fff;
+}
+
+#search-form input
+{
+    border: none;
+    border-radius: 0;
+    height: 40px;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+}
+
+#search-form button
+{
+    background-color: #bd1d25;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    margin: 25px 0 0 -15px;
+    height: 40px;
+}
+
+#features-cont
+{
+    background-color: #191818;
+    height: auto;
+    padding: 10px 0;
+}
+
+#features-cont h2, #popular-cont h2
+{
+    color: #fff;
+    font-size: 16px;
+    font-weight:bold;
+    margin: 5px 0 30px 0;
+}
+
+#app-cont
+{
+    background: url('../images/app_bg.jpg') center top #191818;
+    height: auto;
+    min-height: 524px;
+    width: 100%;
+}
+
+#app-inner-cont
+{
+    margin: 0 auto;
+    padding: 120px 0;
+    width: 716px;
+}
+
+#fork-spoon-mark-wrapper
+{
+    margin-right: 40px;
+}
+
+#fork-spoon-mark
+{
+    display: block;
+    height: 87px;
+    width: 58px;
+}
+
+#app-buttons
+{
+    margin-top: 20px;
+}
+
+#app-buttons a, #app-buttons img
+{
+    display: block;
+    height: 64px;
+    width: 189px;
+}
+
+#app-buttons a
+{
+    outline: none;
+    text-decoration: none;
+}
+
+#apple-button
+{
+    margin-right: 15px;
+}
+
+#popular-cont
+{
+    background-color: #191818;
+    padding-top: 41px;
+}
+
+#popular-inner-cont
+{
+    margin-top: 30px;
+}
+
+#popular-inner-cont img
+{
+    display: block;
+    height: 269px;
+    position: relative;
+    width: 360px;
+    z-index: 500;
+}
+
+#popular-inner-cont .overlay
+{
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.8)));
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    bottom: 0;
+    content: "";
+    display: block;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 );
+    height: 45px;
+    left: 0;
+    -moz-transition: 1s;
+    position: relative;
+    top: 269px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    width: 100%;
+    z-index: 1000;
+}
+
+#popular-inner-cont span
+{
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#footer
+{
+    background-color: #bd1d25;
+    height: 60px;
+    padding-top: 15px;
+    width: 100%;
+}
+
+#footer, #footer a
+{
+    color: #fff;
+}
+
+#footer img
+{
+    display: inline-block;
+    height: 37px;
+    width: 44px;
+}
+
+.to-top-button
+{
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: block;
+    font-size: 18px;
+    height: 30px;
+    line-height: 22px;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: relative;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    width: 30px;
+}
+
+.popular-item
+{
+    height: 444px;
+    margin-bottom: 30px;
+}
+
+.feature-item
+{
+    margin-bottom: 30px;
+}
+
+.feature-item img
+{
+    display: block;
+    height: 269px;
+    width: 360px;
+}
+
+.featured-header, .featured-desc
+{
+    color: #fff;
+}
+
+.featured-header
+{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0.67em;
+    padding: 25px 0;
+}
+
+.app-header-desc
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: inline-block;
+    padding: 10px;
+}
+
+h2.app-header-desc
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+p.app-header-desc
+{
+    font-size: 18px;
+}
+
+.popular-desc
+{
+    padding: 20px 20px 10px 20px;
+    text-align: center;
+}
+
+.popular-desc a
+{
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.popular-desc a:hover
+{
+    color: #bd1d25;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    -webkit-transition: 0.4s
+}
+
+.popular-address
+{
+    color: #868686;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.popular-info
+{
+    padding-top: 5px;
+}
+
+i.active
+{
+    color: #ffc300;
+    font-size: 11px;
+}
+
+.popular-rating
+{
+    margin-bottom: 3px;
+}
+
+.cuisine-icon, .review-icon, .photo-icon, .bookmark-icon, .checkin-icon
+{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.cuisine-icon
+{
+    background: url('../images/cuisine.png') center top;
+}
+
+.review-icon
+{
+    background: url('../images/review.png') center top;
+}
+
+.photo-icon
+{
+    background: url('../images/photo.png') center top;
+}
+
+.bookmark-icon
+{
+    background: url('../images/bookmark.png') center top;
+}
+
+.checkin-icon
+{
+    background: url('../images/checkin.png') center top;
+}

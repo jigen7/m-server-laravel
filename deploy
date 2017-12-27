@@ -1,0 +1,131 @@
+#!/bin/bash
+
+envList="dev prod"
+project="$USER"
+repository="Masarap-Server-Laravel"
+
+branch=""
+env=""
+isDryrun=0
+
+gitSource="git@github.com:KLabCyscorpions/${repository}.git"
+projectDirectory="~/dev.masarap/htdocs/masarap-laravel"
+deployDirectory="~/LOCAL/deploy"
+sourceDirectory="$deployDirectory/$repository"
+logsDirectory="$deployDirectory/logs"
+lockFile="$deployDirectory/.$repository.lock"
+
+function error_exit() {
+    echo "[ERROR]: $1"
+    display_usage;
+    exit 1;
+}
+
+function display_usage() {
+    echo "[USAGE]: `basename $0` <parameters..>"
+    echo "Parameters:"
+    echo "  -e <environment>  ($envList)"
+    echo "  -b <branch>       Branch name (default:master)"
+    echo "  -n                Dry-run (optional)"
+    exit;
+}
+
+function initialize_repository() {
+    touch ${lockFile}
+    echo -e "\n[INFO] Initializing SERVICE git repository source"
+    cd ${deployDirectory}/
+    if [ ! -d "$sourceDirectory/" ]; then
+        git clone ${gitSource}
+    fi
+    cd ${deployDirectory}/${repository}/
+
+    git reset --hard
+    git pull
+    git checkout ${branch}
+    git pull origin ${branch}
+
+    create_source_log
+}
+
+function display_information() {
+    echo " [{$project} Teaser SERVICE Repository Deployment$([[ ${isDryrun} -eq 1 ]] && echo ' (DRY-RUN)')]"
+    echo " Repository              : $gitSource"
+    echo " Branch                  : origin/$branch"
+    echo " Project                 : $project"
+    echo " Environment             : $env"
+    echo " Source Directory        : $sourceDirectory/"
+    echo " Destination Directory   : $projectDirectory/web/"
+    echo ""
+}
+
+function configure_source_files() {
+    [[ "$env" = "prod" ]] && core="production" || core="development"
+
+    cd ${sourceDirectory}/app/config/
+    ln -sf core.${core}.php core.php
+    cd ${sourceDirectory}/
+}
+
+function create_source_log() {
+    [[ ! -d "$logsDirectory" ]] && mkdir -p "$logsDirectory"
+
+    hash=`git rev-parse ${branch}`
+    dateTime=`date '+%Y-%m-%d %H:%M:%S'`
+    echo "[$dateTime] origin/$branch ($hash)" >> "$logsDirectory/$repository.log"
+}
+
+function deploy_source_files() {
+    command="rsync -av$([[ ${isDryrun} -eq 1 ]] && echo 'n') --delete --exclude=.git ${sourceDirectory}/ ${projectDirectory}/web/";
+    echo -e "\n[INFO] Deploying source files to server";
+    echo "$command";
+    ${command}
+}
+
+function finish_deployment() {
+    echo -e "\n[INFO] Deployment of SERVICE Repository has been finished. Success.";
+    rm "$deployDirectory/.$repository.lock"
+    reminder='';
+    reminder="${reminder}\033[01;32mReminder!\033[00m Please sync contents to other server(s)\n"
+    reminder="${reminder}\033[01;32m    /opt/klab/bin/sync_contents -n\033[00m\n"
+    reminder="${reminder}\033[01;32m    /opt/klab/bin/sync_contents\033[00m"
+    [[ -z "$isDryrun" ]] && echo -e "$reminder \n";
+}
+
+#####################################
+###     Parse command options     ###
+#####################################
+while getopts "e:b:n" option; do
+    case ${option} in
+        e) env="$OPTARG" ;;
+        b) branch="$OPTARG" ;;
+        n) isDryrun=1;;
+        \?) display_usage;;
+    esac
+done
+shift $((OPTIND - 1))
+
+envValidate=$(echo "$envList" | grep -o "$env");
+[[ -z "$env" || -z "$envValidate" ]] && error_exit "Invalid env: $env";
+[[ -z "$branch" ]] && branch='master';
+
+#####################################
+###   Deploy SERVICE repository   ###
+#####################################
+display_information;
+dateTime=`date '+%Y%m%d-%H%M%S'`
+reminder="${reminder}\033[01;32mReminder!\033[00m Please backup current contents before you deploy\n"
+reminder="${reminder}\033[01;32m    tar czf ${projectDirectory}/home/LOCAL/tmp/web.${dateTime}.tar.gz $projectDirectory/web\033[00m\n"
+echo -e "$reminder \n";
+read -p "Are you sure to deploy SERVICE repository? [y/N] " input
+if [[ ${input} =~ ^[Yy]$ ]]; then
+    if [[ -f "$lockFile" ]]; then
+        error_exit "Another deployment is running. Aborted.";
+    fi
+
+    initialize_repository;
+    configure_source_files;
+    deploy_source_files;
+    finish_deployment;
+else
+    echo -e "\n[INFO] Deployment has been cancelled."
+fi

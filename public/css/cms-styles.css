@@ -1,0 +1,91 @@
+/* Elements */
+#header-nav
+{
+    border-radius: 0;
+}
+
+#sidebar-div
+{
+    background-color: #f5f5f5;
+    border-right: solid 1px #eee;
+    bottom: 0;
+    display: block;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 20px;
+    position: fixed;
+    top: 52px;
+    z-index: 1000;
+}
+
+#restaurant-table_filter input
+{
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    color: #555;
+    display: inline-block;
+    font: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857143;
+    margin: 0;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    padding: 6px 12px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    vertical-align: middle;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    width: auto;
+}
+
+#category-form
+{
+    width: 50%;
+}
+
+/* Classes */
+.navbar-nav li
+{
+    color: #9d9d9d;
+    margin: 0 15px;
+    padding: 15px 0;
+}
+
+.navbar-nav li a
+{
+    padding: 0;
+}
+
+.navbar-nav li span
+{
+    color: #fff;
+}
+
+.nav-sidebar li span
+{
+    display: block;
+    font-weight: bold;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.non-block
+{
+    display: inline !important;
+    width: auto;
+}
+
+.form-inline .form-group
+{
+    margin-right: 15px;
+}
+
+#cuisines-modal .modal-content {
+    height: 500px;
+    overflow: auto !important;
+}

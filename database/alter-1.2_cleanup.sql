@@ -1,0 +1,10 @@
+DROP TABLE `activities.tmp`;
+DROP TABLE `like.tmp`;
+DROP TABLE `photos.tmp`;
+DROP TABLE `comments.tmp`;
+DROP TABLE `reviews.tmp`;
+DROP TABLE `bookmarks.tmp`;
+DROP TABLE `check_ins.tmp`;
+DROP TABLE `reported.tmp`;
+DROP TABLE `reported_photos`;
+DROP TABLE `restaurants.tmp`;

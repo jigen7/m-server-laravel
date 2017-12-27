@@ -1,0 +1,3 @@
+[submodule "Masarap-Server-Laravel-Web"]
+    path = app/Modules/Web
+    url = git://github.com/KLabCyscorpions/Masarap-Server-Laravel-Web.git

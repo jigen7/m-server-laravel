@@ -1,0 +1,18 @@
+.env
+.env.*.php
+.env.php
+.idea
+/vendor
+/node_modules
+/public/adminer*
+/public/uploads
+.DS_Store
+Thumbs.db
+composer.phar
+storage/framework/sessions/
+storage/framework/views/
+storage/logs
+composer.lock
+app/Modules/Web 
+app/Modules/Cms
+ public/assets_web
